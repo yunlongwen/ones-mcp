@@ -1,0 +1,23 @@
+[Unit]
+Description=ONES Wiki MCP Server
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USER
+WorkingDirectory=/path/to/ones-wiki-mcp-server
+Environment="PATH=/usr/bin:/usr/local/bin"
+ExecStart=/usr/bin/python3 /path/to/ones-wiki-mcp-server/server_http.py
+Restart=always
+RestartSec=10
+
+# 日志配置
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ones-wiki-mcp
+
+[Install]
+WantedBy=multi-user.target
+
+
+
